@@ -4,7 +4,71 @@ body {
 	 */
   font: 100%/1.5 system-ui;
 
-  max-width: 900px;
+  max-width: 100ch;
   margin: 0 auto;
-  padding: 20px;
+  margin-inline: auto;
+  padding: 100px;}
+
+nav {display: flex;
+    margin-bottom: 1em;
+    border-bottom: 1px solid oklch(80% 3% 200);}
+
+nav a {flex: 1;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    padding: 0.5em;}
+
+nav a.current {border-bottom: 0.4em solid oklch(80% 3% 200);
+    padding-bottom: 0.3em;}
+
+html { --color-accent: oklch(52.88% 0.16747 140.424);
+    accent-color: var(--color-accent);}
+
+nav a:hover {border-bottom: 0.4em solid var(--color-accent);}
+
+input, textarea, button {font: inherit;}
+
+ form {display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;}
+
+button {grid-column: 1 / -1;}
+
+h1 {font-size: 400%;}
+
+h1, h2, h3, h4, h5, h6 {line-height: 1.1;
+  text-wrap: balance;}
+
+.projects {display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;}
+
+.projects article {display: grid; 
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: 2em;}
+
+.projects h2 {margin: 0;}
+
+.cv-section {margin-bottom: 2em;}
+
+section article {margin-bottom: 2em;
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid oklch(90% 1% 200);}
+
+section h3 {margin-bottom: 0.25em;
+  color: var(--color-accent);}
+
+section article p:first-of-type {font-weight: 700;
+  margin: 0.25em 0;}
+
+section article p:has(time) {color: #666;
+  font-style: italic;}
+
+section:last-child article p {font-weight: normal;}
+
+img[alt="profile picture"] {
+  margin-bottom: 0.5em;
+  border-radius: 8px;
 }
