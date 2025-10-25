@@ -118,3 +118,29 @@ img[alt="profile picture"] {
   margin-bottom: 0.5em;
   border-radius: 8px;
 }
+
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5 rem;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.stats-grid dt {
+    grid-row: 1;
+    font-size: rem;
+    font-weight: normal;
+    color: #666;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.stats-grid dd {
+    grid-row: 2;
+    font-size: 3rem;
+    font-weight: normal;
+    margin: 0;
+}

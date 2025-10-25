@@ -71,9 +71,53 @@ for (let p of pages) {
     if (a.host !== location.host) {a.target = '_blank';}
   
     nav.append(a);
+}
 
+// Lab4
+
+export async function fetchJSON(url) {
+  try {
+    // Fetch the JSON file from the given URL
+    const response = await fetch(url);
+    // Check if the response is OK (status code 200-299)
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    // Parse and return the JSON data
+    const data = await response.json();
+    return data;
+
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error)
+    return [];
+  }
 }
 
 
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  containerElement.innerHTML = '';
+  
+  if (!projects || !Array.isArray(projects) || projects.length === 0) {
+    containerElement.innerHTML = '<p>No projects to display.</p>';
+    return;
+  }
+  
+  // Loop through each project in the array
+  for (let project of projects) {
+    const article = document.createElement('article');
+    
+    // Populate with dynamic content using the headingLevel parameter
+    article.innerHTML = `
+      <${headingLevel}>${project.title}</${headingLevel}>
+      <img src="${project.image}" alt="${project.title}">
+      <p>${project.description}</p>
+    `;
+    
+    // Append the article to the container
+    containerElement.appendChild(article);
+  }
+}
 
-
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
