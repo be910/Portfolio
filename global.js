@@ -1,4 +1,4 @@
-console.log('IT’S ALIVE!');
+console.log('IT\'S ALIVE!');
 
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
@@ -71,28 +71,31 @@ for (let p of pages) {
     if (a.host !== location.host) {a.target = '_blank';}
   
     nav.append(a);
-
 }
 
-
 // Lab4
+
 export async function fetchJSON(url) {
   try {
     console.log('Fetching from:', url);
     const response = await fetch(url);
 
-    // Check if the response is OK 
+    // Check if the response is OK (status code 200-299)
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
+    
+    // Parse and return the JSON data
     const data = await response.json();
     console.log('Fetched data:', data);
     return data;
+
   } catch (error) {
     console.error('Error fetching or parsing JSON data:', error);
-    return []; 
+    return [];
   }
 }
+
 
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   containerElement.innerHTML = '';
@@ -102,37 +105,23 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     return;
   }
   
+  // Loop through each project in the array
   for (let project of projects) {
     const article = document.createElement('article');
-      article.innerHTML = `
+    
+    // Populate with dynamic content using the headingLevel parameter
+    article.innerHTML = `
       <${headingLevel}>${project.title}</${headingLevel}>
       <img src="${project.image}" alt="${project.title}">
       <p>${project.description}</p>
     `;
     
+    // Append the article to the container
     containerElement.appendChild(article);
   }
 }
 
 
 export async function fetchGitHubData(username) {
-  try {
-    console.log('Fetching GitHub data for:', username);
-    const response = await fetch(`https://api.github.com/users/${username}`);
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    
-    const data = await response.json();
-    console.log('GitHub data:', data);
-    return data;
-    
-  } catch (error) {
-    console.error('Error fetching GitHub data:', error);
-    return null;
-  }
+  return fetchJSON(`https://api.github.com/users/${username}`);
 }
-
-
-
