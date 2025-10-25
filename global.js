@@ -75,5 +75,64 @@ for (let p of pages) {
 }
 
 
+// Lab4
+export async function fetchJSON(url) {
+  try {
+    console.log('Fetching from:', url);
+    const response = await fetch(url);
+
+    // Check if the response is OK 
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log('Fetched data:', data);
+    return data;
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+    return []; 
+  }
+}
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  containerElement.innerHTML = '';
+  
+  if (!projects || !Array.isArray(projects) || projects.length === 0) {
+    containerElement.innerHTML = '<p>No projects to display.</p>';
+    return;
+  }
+  
+  for (let project of projects) {
+    const article = document.createElement('article');
+      article.innerHTML = `
+      <${headingLevel}>${project.title}</${headingLevel}>
+      <img src="${project.image}" alt="${project.title}">
+      <p>${project.description}</p>
+    `;
+    
+    containerElement.appendChild(article);
+  }
+}
+
+
+export async function fetchGitHubData(username) {
+  try {
+    console.log('Fetching GitHub data for:', username);
+    const response = await fetch(`https://api.github.com/users/${username}`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    console.log('GitHub data:', data);
+    return data;
+    
+  } catch (error) {
+    console.error('Error fetching GitHub data:', error);
+    return null;
+  }
+}
+
 
 
