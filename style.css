@@ -3,6 +3,7 @@ html {
   --color-accent: oklch(52.88% 0.16747 140.424);
   accent-color: var(--color-accent);
 }
+
 .color-scheme {
   position: absolute;
   top: 1rem;
@@ -15,7 +16,6 @@ body {
 	   and use the OS's UI font as the website font
 	 */
   font: 100%/1.5 system-ui;
-
   max-width: 100ch;
   margin: 0 auto;
   margin-inline: auto;
@@ -45,6 +45,7 @@ nav a.current {
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
 }
+
 input, textarea, button {
   font: inherit;
 }
@@ -120,26 +121,110 @@ img[alt="profile picture"] {
 }
 
 .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
 .stats-grid dt {
-    grid-row: 1;
-    font-size: 1rem;
-    font-weight: normal;
-    color: #666;
-    text-transform: uppercase;
-    margin: 0;
+  grid-row: 1;
+  font-size: 1rem;
+  font-weight: normal;
+  color: #666;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 .stats-grid dd {
-    grid-row: 2;
-    font-size: 3rem;
-    font-weight: bold;
-    margin: 0;
+  grid-row: 2;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Lab 5 - D3 Visualization */
+
+.year {
+  font-style: italic;
+  color: #fff;
+  margin-top: 0.5rem;
+}
+
+/* Container for pie chart and legend */
+.container {
+  display: flex;
+  gap: 2em;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: 2em 0;
+  overflow-x: auto;
+}
+
+#projects-pie-plot {
+  max-width: 20em;
+  min-width: 15em;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+/* Pie chart path styling */
+#projects-pie-plot path {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+#projects-pie-plot:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
+
+/* Selected wedge styling */
+#projects-pie-plot path.selected {
+  fill: oklch(60% 45% 0);
+}
+
+/* Legend styling */
+.legend {
+  flex: 1;
+  min-width: 180px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.5em 1em;
+  list-style: none;
+  padding: 1em;
+  margin: 0;
+  border: 1px solid #ccc;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+}
+
+.legend li.selected {
+  --color: oklch(60% 45% 0) !important;
+}
+
+/* Swatch styling */
+.swatch {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: var(--color);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+
+/* Search bar styling */
+.searchBar {
+  width: 100%;
+  padding: 0.75em 1em;
+  font-size: 1rem;
+  margin-bottom: 2em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
