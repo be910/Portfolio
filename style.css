@@ -336,9 +336,10 @@ dl.info:not([hidden]) {
 }
 
 #language-breakdown {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 3rem;
   margin-top: 1rem;
   padding: 1.5rem;
   background-color: light-dark(rgba(240, 240, 240, 0.5), rgba(50, 50, 50, 0.5));
@@ -347,18 +348,29 @@ dl.info:not([hidden]) {
 
 #language-breakdown dt {
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.25rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--color-accent);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 #language-breakdown dd {
   margin: 0;
   font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  text-align: center;
+}
+
+#language-breakdown dd:last-of-type {
+  margin-bottom: 0;
+}
+
+#language-breakdown div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
