@@ -3,73 +3,84 @@
         "title": "Expository Visualizations",
         "image": "../images/Exp_Visual.jpg",
         "year": 2025,
-        "description": "Using grocery dataset to analyzes the top five prepared meal brands to identify which offer the best balance of nutritional value: high protein-to-sugar ratios, at reasonable prices."
-
-    },
+        "description": "Using grocery dataset to analyzes the top five prepared meal brands to identify which offer the best balance of nutritional value: high protein-to-sugar ratios, at reasonable prices.",
+        "url": "../images/DSC209_Project_1.pdf"
+},
     {
         "title": "Deceptive Visualizations",
         "image": "../images/Police_Complaints.jpg",
         "year": 2025,
-        "description": "Using CCRB dataset to explore police complaints filed in New York City and generate visualizations using deceptive techniques to support and refute a propasition."
+        "description": "Using CCRB dataset to explore police complaints filed in New York City and generate visualizations using deceptive techniques to support and refute a propasition.",
+        "url": "https://be910.github.io/Project2/project2_report.html"
     },
     {
         "title": "Amazon Reviews as Economic Indicators",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "year": 2025,
-        "description": "Using Amazon reviews data to analyze consumer sentiment and its correlation with economic indicators such as GDP."
+        "description": "Using Amazon reviews data to analyze consumer sentiment and its correlation with economic indicators such as GDP.",
+        "url": "#"
     },
     {
         "title": "Pedal Patrol",
         "image": "../images/PedalPatrol.jpg",
         "year": 2025,
-        "description": "Using D3 and MapBox to create an interactive map that visualizes bike traffic patterns in Boston, MA."
+        "description": "Using D3 and MapBox to create an interactive map that visualizes bike traffic patterns in Boston, MA.",
+        "url": "https://be910.github.io/PedalPatrol/"   
     },
     {
         "title": "Iste accusamus facere labore.",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "year": 2024,
-        "description": "Voluptatibus perspiciatis voluptatem inventore harum deserunt, laboriosam quis sint perferendis quaerat dolorem dicta cupiditate quas est soluta quos doloremque rerum eum enim. Ex, a distinctio cupiditate dolorem quod dolor? Saepe."
+        "description": "Voluptatibus perspiciatis voluptatem inventore harum deserunt, laboriosam quis sint perferendis quaerat dolorem dicta cupiditate quas est soluta quos doloremque rerum eum enim. Ex, a distinctio cupiditate dolorem quod dolor? Saepe.",
+        "url": "#"
     },
     {
         "title": "Ipsum quibusdam repellendus eius?",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "year": 2023,
-        "description": "Architecto ducimus voluptatem minima distinctio! Quod eos odit, blanditiis similique rem temporibus quae delectus consequuntur debitis repudiandae expedita magnam quisquam ad. Facilis quasi voluptates cum fugiat ipsum eligendi quae repudiandae?"
+        "description": "Architecto ducimus voluptatem minima distinctio! Quod eos odit, blanditiis similique rem temporibus quae delectus consequuntur debitis repudiandae expedita magnam quisquam ad. Facilis quasi voluptates cum fugiat ipsum eligendi quae repudiandae?",
+        "url": "#"
     },
     {
         "title": "Quis quae quasi optio.",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "year": 2024,
-        "description": "Iure explicabo ullam quam magnam accusantium. Atque saepe praesentium optio officiis suscipit ab quibusdam libero dolorum id, nesciunt deleniti, odio hic tenetur esse mollitia, aut cumque nobis porro numquam aliquid."
+        "description": "Iure explicabo ullam quam magnam accusantium. Atque saepe praesentium optio officiis suscipit ab quibusdam libero dolorum id, nesciunt deleniti, odio hic tenetur esse mollitia, aut cumque nobis porro numquam aliquid.",
+        "url": "#"
     },
     {
         "title": "Non alias quod nostrum.",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "year": 2023,
-        "description": "Totam necessitatibus nostrum et eum eaque qui nam illo? Ea soluta qui deserunt velit. A eos dolore accusantium distinctio tenetur, non perspiciatis recusandae expedita ab voluptas officiis laboriosam perferendis quod!"
+        "description": "Totam necessitatibus nostrum et eum eaque qui nam illo? Ea soluta qui deserunt velit. A eos dolore accusantium distinctio tenetur, non perspiciatis recusandae expedita ab voluptas officiis laboriosam perferendis quod!",
+        "url": "#"
     },
     {
         "title": "Autem non quidem tempora?",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "year": 2023,
-        "description": "Doloribus facilis hic recusandae cupiditate voluptate. Ea, ratione impedit eaque quis similique, maxime tempora quibusdam distinctio maiores illo officia recusandae corporis esse sit accusantium necessitatibus fuga id dolores perferendis velit."
+        "description": "Doloribus facilis hic recusandae cupiditate voluptate. Ea, ratione impedit eaque quis similique, maxime tempora quibusdam distinctio maiores illo officia recusandae corporis esse sit accusantium necessitatibus fuga id dolores perferendis velit.",
+        "url": "#"
     },
     {
         "title": "Quae doloremque delectus ex!",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "year": 2024,
-        "description": "Dolore, velit nemo dolorum voluptatum ipsa autem laborum! Veritatis officiis culpa consectetur quibusdam maxime nam, provident dolores facere beatae nostrum sit neque dolor unde amet. Dicta facere perferendis quidem iusto."
+        "description": "Dolore, velit nemo dolorum voluptatum ipsa autem laborum! Veritatis officiis culpa consectetur quibusdam maxime nam, provident dolores facere beatae nostrum sit neque dolor unde amet. Dicta facere perferendis quidem iusto.",
+        "url": "#"
     },
     {
         "title": "Tempore, molestiae temporibus. Autem.",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "year": 2025,
-        "description": "Ipsam vero perferendis repudiandae, dignissimos provident nobis adipisci? Odio perferendis nulla quisquam facere quis voluptate enim? Dicta, quo omnis eveniet aperiam quae vel, est quos consectetur deserunt dolore sed exercitationem?"
+        "description": "Ipsam vero perferendis repudiandae, dignissimos provident nobis adipisci? Odio perferendis nulla quisquam facere quis voluptate enim? Dicta, quo omnis eveniet aperiam quae vel, est quos consectetur deserunt dolore sed exercitationem?",
+        "url": "#"
     },
     {
         "title": "Quia eius deleniti minus!",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",   
         "year": 2024,
-        "description": "Omnis sit ducimus ullam eaque explicabo in, reprehenderit commodi aut voluptates dolorum ratione accusamus dolorem, distinctio nam. Eveniet, impedit nobis libero dicta autem iste deserunt culpa. Excepturi illum iste nobis."
+        "description": "Omnis sit ducimus ullam eaque explicabo in, reprehenderit commodi aut voluptates dolorum ratione accusamus dolorem, distinctio nam. Eveniet, impedit nobis libero dicta autem iste deserunt culpa. Excepturi illum iste nobis.",
+        "url": "#"
     }
 ]

@@ -418,5 +418,5 @@ circle.selected {
 }
 
 .project-card p:not(.year) {
-  margin-top: 3rem; /* Add space above description */
+  margin-top: 1.5rem; /* Add space above description */
 }
