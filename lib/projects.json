@@ -1,13 +1,14 @@
 [
     {
         "title": "Expository Visualizations",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "image": "../images/Exp_Visual.jpg",
         "year": 2025,
         "description": "Using grocery dataset to analyzes the top five prepared meal brands to identify which offer the best balance of nutritional value: high protein-to-sugar ratios, at reasonable prices."
+
     },
     {
         "title": "Deceptive Visualizations",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "image": "../images/Police_Complaints.jpg",
         "year": 2025,
         "description": "Using CCRB dataset to explore police complaints filed in New York City and generate visualizations using deceptive techniques to support and refute a propasition."
     },
@@ -18,10 +19,10 @@
         "description": "Using Amazon reviews data to analyze consumer sentiment and its correlation with economic indicators such as GDP."
     },
     {
-        "title": "Dolore deleniti ad ipsam.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "year": 2024,
-        "description": "Dolores enim voluptatum delectus id blanditiis aliquid iste voluptates asperiores suscipit distinctio, eligendi voluptate libero vel quo rem culpa a aut fugit, eius ut eos fuga autem sunt. Nesciunt, beatae?"
+        "title": "Pedal Patrol",
+        "image": "../images/PedalPatrol.jpg",
+        "year": 2025,
+        "description": "Using D3 and MapBox to create an interactive map that visualizes bike traffic patterns in Boston, MA."
     },
     {
         "title": "Iste accusamus facere labore.",
