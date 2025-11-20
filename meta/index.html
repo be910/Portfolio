@@ -11,39 +11,52 @@
 <body>
     <h1>Meta</h1>
 
-    <!-- Detailed stats section (populated by renderCommitInfo) -->
     <div id="stats"></div>
     
-    <!-- Chart section -->
     <h2>Commits by time of day</h2>
 
-    <div id="chart"></div>
+    <div style="display: flex; flex: 1; align-items: baseline;">
+        <label style="font-size: 1.2em;">
+            Show commits until:
+            <input type="range" id="commit-progress" min="0" max="100" >
+            <time id="slider-time" style="margin-left: auto;"></time>
+        </label>
+    </div>
 
-    <!-- Tooltip (shown on hover) -->
-    <dl id="commit-tooltip" class="info tooltip" hidden>
-        <dt>Commit</dt>
-        <dd>
-            <a href="" id="commit-link" target="_blank"></a>
-        </dd>
+    <div id="scrolly-1">
+        <div id="scatter-story"></div>
+        
+        <div id="scatter-plot">
+            <!-- Chart section -->
+            <div id="chart"></div>
 
-        <dt>Date</dt>
-        <dd id="commit-date"></dd>
+            <!-- Tooltip (shown on hover) -->
+            <dl id="commit-tooltip" class="info tooltip" hidden>
+                <dt>Commit</dt>
+                <dd>
+                    <a href="" id="commit-link" target="_blank"></a>
+                </dd>
 
-        <dt>Time</dt>
-        <dd id="commit-time"></dd>
+                <dt>Date</dt>
+                <dd id="commit-date"></dd>
 
-        <dt>Author</dt>
-        <dd id="commit-author"></dd>
+                <dt>Time</dt>
+                <dd id="commit-time"></dd>
 
-        <dt>Lines edited</dt>
-        <dd id="commit-lines"></dd>
+                <dt>Author</dt>
+                <dd id="commit-author"></dd>
 
-    </dl>
+                <dt>Lines edited</dt>
+                <dd id="commit-lines"></dd>
+            </dl>
 
-     <p id="selection-count">No commits selected</p>
-     
-     <dl id="language-breakdown" class="stats"></dl>
+            <p id="selection-count">No commits selected</p>
+            
+            <dl id="language-breakdown" class="stats"></dl>
+        </div>
+    </div>
 
+    <dl id="files"></dl>
 
 </body>
 </html>

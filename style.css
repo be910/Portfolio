@@ -238,11 +238,12 @@ img[alt="profile picture"] {
   grid-auto-rows: auto;
   row-gap: .25rem;
   column-gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 #stats .stats dt,
 #stats .stats dd {
-  margin: 0;
+  margin: 0 !important;
 }
 
 #stats .stats dt {
@@ -250,18 +251,13 @@ img[alt="profile picture"] {
   text-transform: uppercase;
   font-weight: 600;
   opacity: .6;
+  grid-row: 1 !important;
 }
 
 #stats .stats dd {
   font-size: 1.5rem;
   font-weight: 700;
-}
-
-#stats .stats dt {
-  grid-row: 1;
-}
-#stats .stats dd {
-  grid-row: 2;
+  grid-row: 2 !important;
 }
 
 /* tooltip styling */
@@ -376,11 +372,16 @@ dl.info:not([hidden]) {
 }
 
 
+
 /* Scatter plot styling */
 circle {
   transition: 200ms;
   transform-origin: center;
   transform-box: fill-box;
+  
+  @starting-style {
+    r: 0;
+  }
 }
 
 circle:hover {
@@ -419,4 +420,79 @@ circle.selected {
 
 .project-card p:not(.year) {
   margin-top: 1.5rem; /* Add space above description */
+}
+
+#files {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+
+  > div {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+
+  dt {
+    grid-column: 1;
+  }
+
+  dd {
+    grid-column: 2;
+  }
+}
+
+dt small {
+  display: block;
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: normal;
+  margin-top: 0.25rem;
+}
+
+.loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background: var(--color);
+  border-radius: 50%;
+}
+
+dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+
+  > * {
+    flex: 1;
+  }
+}
+
+#scatter-story {
+  position: relative;
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  height: 50vh;
+}
+
+#commit-progress {
+    width: 500px; /* takes full width of parent */
+    height: 15px;
+    margin-top: 1em;
+    margin-bottom: 2em;
 }

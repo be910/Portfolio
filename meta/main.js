@@ -1,5 +1,7 @@
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 let xScale, yScale;
+let commitProgress = 100;
+
 
 // Load CSV data
 async function loadData() {
@@ -46,54 +48,67 @@ function processCommits(data) {
 }
 
 function renderCommitInfo(data, commits) {
+  // Make absolutely sure the container is empty
+  const statsContainer = d3.select('#stats');
+  statsContainer.selectAll('*').remove();
+  
   // Create the dl element
-  const dl = d3.select('#stats').append('dl').attr('class', 'stats');
+  const dl = statsContainer.append('dl').attr('class', 'stats');
 
-  // Add total LOC
-  dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
-  dl.append('dd').text(data.length);
+  // Add total LOC (column 1)
+  dl.append('dt').text('Total LOC').style('grid-column', '1');
+  dl.append('dd').text(data.length).style('grid-column', '1');
 
-  // Add total commits
-  dl.append('dt').text('Total commits');
-  dl.append('dd').text(commits.length);
+  // Add total commits (column 2)
+  dl.append('dt').text('Total commits').style('grid-column', '2');
+  dl.append('dd').text(commits.length).style('grid-column', '2');
 
-  // Add Number of files in the codebase
+  // Add Number of files in the codebase (column 3)
   const fileCounts = d3.rollup(
     data,
     (v) => v.length,
     (d) => d.file
+  );
+
+  dl.append('dt').text('Number of files').style('grid-column', '3');
+  dl.append('dd').text(fileCounts.size).style('grid-column', '3');
+
+  // Add day of the week that most work is done (column 4)
+  if (commits.length > 0) {
+    const dayCounts = d3.rollup(
+      commits,
+      (v) => v.length,
+      (d) => d.datetime.getDay()
+    );
+    const maxDayEntry = Array.from(dayCounts).reduce((max, entry) => 
+      entry[1] > max[1] ? entry : max
+    );
+    const mostActiveDay = maxDayEntry[0];
+    dl.append('dt').text('Most active day of the week').style('grid-column', '4');
+    dl.append('dd').text(['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][mostActiveDay]).style('grid-column', '4');
+  } else {
+    dl.append('dt').text('Most active day of the week').style('grid-column', '4');
+    dl.append('dd').text('N/A').style('grid-column', '4');
+  }
+
+  // Add hour of the day that most work is done (column 5)
+  if (commits.length > 0) {
+    const hourCounts = d3.rollup(
+      commits,
+      (v) => v.length,
+      (d) => d.datetime.getHours()
     );
 
-    dl.append('dt').text('Number of files');
-    dl.append('dd').text(fileCounts.size);
-
-  // Add day of the week that most work is done
-  const dayCounts = d3.rollup(
-    commits,
-    (v) => v.length,
-    (d) => d.datetime.getDay()
-  );
-  const maxDayEntry = Array.from(dayCounts).reduce((max, entry) => 
-  entry[1] > max[1] ? entry : max
-);
-    const mostActiveDay = maxDayEntry[0];
-  dl.append('dt').text('Most active day of the week');
-  dl.append('dd').text(['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][mostActiveDay]);
-
-  // Add hour of the day that most work is done
-  const hourCounts = d3.rollup(
-    commits,
-    (v) => v.length,
-    (d) => d.datetime.getHours()
-  );
-
-  const maxHourEntry = Array.from(hourCounts).reduce((max, entry) => 
-  entry[1] > max[1] ? entry : max
-);
+    const maxHourEntry = Array.from(hourCounts).reduce((max, entry) => 
+      entry[1] > max[1] ? entry : max
+    );
     const mostActiveHour = maxHourEntry[0];
-  dl.append('dt').text('Most active hour of the day');
-  dl.append('dd').text(`${mostActiveHour}:00 - ${mostActiveHour + 1}:00`);
-
+    dl.append('dt').text('Most active hour of the day').style('grid-column', '5');
+    dl.append('dd').text(`${mostActiveHour}:00 - ${mostActiveHour + 1}:00`).style('grid-column', '5');
+  } else {
+    dl.append('dt').text('Most active hour of the day').style('grid-column', '5');
+    dl.append('dd').text('N/A').style('grid-column', '5');
+  }
 }
 
 function renderTooltipContent(commit) {
@@ -240,17 +255,17 @@ function renderScatterPlot(data, commits) {
         .axisLeft(yScale)
         .tickFormat((d) => String(d % 24).padStart(2, '0') + ':00');
 
-    // Add X axis
     svg
         .append('g')
         .attr('transform', `translate(0, ${usableArea.bottom})`)
+        .attr('class', 'x-axis') // new line to mark the g tag
         .call(xAxis);
 
-    // Add Y axis
     svg
-        .append('g')
-        .attr('transform', `translate(${usableArea.left}, 0)`)
-        .call(yAxis);
+      .append('g')
+      .attr('transform', `translate(${usableArea.left}, 0)`)
+      .attr('class', 'y-axis') // just for consistency
+      .call(yAxis);
     
     const gridlines = svg
         .append('g')
@@ -272,7 +287,7 @@ function renderScatterPlot(data, commits) {
 
     dots
         .selectAll('circle')
-        .data(sortedCommits)
+        .data(sortedCommits, (d) => d.id) // change this line
         .join('circle')
         .attr('cx', (d) => xScale(d.datetime))
         .attr('cy', (d) => yScale(d.hourFrac))
@@ -297,9 +312,262 @@ function renderScatterPlot(data, commits) {
 }
 
 
+function updateScatterPlot(data, commits) {
+  const width = 1000;
+  const height = 600;
+  const margin = { top: 10, right: 10, bottom: 30, left: 20 };
+  const usableArea = {
+    top: margin.top,
+    right: width - margin.right,
+    bottom: height - margin.bottom,
+    left: margin.left,
+    width: width - margin.left - margin.right,
+    height: height - margin.top - margin.bottom,
+  };
+
+  const svg = d3.select('#chart').select('svg');
+
+  xScale = xScale.domain(d3.extent(commits, (d) => d.datetime));
+
+  const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
+  const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([2, 30]);
+
+  const xAxis = d3.axisBottom(xScale);
+
+  // Clear out the existing xAxis and then create a new one
+  const xAxisGroup = svg.select('g.x-axis');
+  xAxisGroup.selectAll('*').remove();
+  xAxisGroup.call(xAxis);
+
+  const dots = svg.select('g.dots');
+
+  const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
+  dots
+    .selectAll('circle')
+    .data(sortedCommits, (d) => d.id)
+    .join('circle')
+    .attr('cx', (d) => xScale(d.datetime))
+    .attr('cy', (d) => yScale(d.hourFrac))
+    .attr('r', (d) => rScale(d.totalLines))
+    .attr('fill', 'steelblue')
+    .style('fill-opacity', 0.7)
+    .on('mouseenter', (event, commit) => {
+      d3.select(event.currentTarget).style('fill-opacity', 1);
+      renderTooltipContent(commit);
+      updateTooltipVisibility(true);
+      updateTooltipPosition(event);
+    })
+    .on('mousemove', (event) => {
+      updateTooltipPosition(event);
+    })
+    .on('mouseleave', (event) => {
+      d3.select(event.currentTarget).style('fill-opacity', 0.7);
+      updateTooltipVisibility(false);
+    });
+}
+
 
 let data = await loadData();
 let commits = processCommits(data);
+commits.sort((a, b) => a.datetime - b.datetime); 
 
-renderCommitInfo(data, commits);
+let timeScale = d3
+  .scaleTime()
+  .domain([
+    d3.min(commits, (d) => d.datetime),
+    d3.max(commits, (d) => d.datetime)
+  ])
+  .range([0, 100]);
+let commitMaxTime = timeScale.invert(commitProgress);
+
+// renderCommitInfo will be called by onTimeSliderChange
 renderScatterPlot(data, commits);
+
+let filteredCommits = commits;
+// Define colors here for this page
+let colors = d3.scaleOrdinal(d3.schemeTableau10);
+
+
+// function updateFileDisplay(filteredCommits) {
+//   let lines = filteredCommits.flatMap((d) => d.lines);
+//   let files = d3
+//     .groups(lines, (d) => d.file)
+//     .map(([name, lines]) => {
+//       return { name, lines };
+//     })
+//     .sort((a, b) => b.lines.length - a.lines.length);
+
+//   console.log('Updating file display with', files.length, 'files');
+
+//   let filesContainer = d3
+//     .select('#files')
+//     .selectAll('div')
+//     .data(files, (d) => d.name)
+//     .join(
+//       (enter) => {
+//         console.log('Enter selection - creating new divs');
+//         return enter.append('div').call((div) => {
+//           div.append('dt').call(dt => {
+//             dt.append('code');
+//             dt.append('div').attr('class', 'line-count');
+//           });
+//           div.append('dd');
+//         });
+//       },
+//       (update) => {
+//         console.log('Update selection - updating existing divs');
+//         return update;
+//       },
+//       (exit) => {
+//         console.log('Exit selection - removing divs');
+//         return exit.remove();
+//       }
+//     );
+
+//   // Update file names for ALL divs (both new and existing)
+//   filesContainer.select('dt > code').text((d) => d.name);
+//   filesContainer.select('dd').text((d) => `${d.lines.length} lines`);
+  
+  
+//   filesContainer
+//     .select('dd')
+//     .selectAll('div')
+//     .data((d) => d.lines)
+//     .join('div')
+//     .attr('class', 'loc')
+//     .attr('style', (d) => `--color: ${colors(d.type)}`);
+// }
+
+function updateFileDisplay(filteredCommits) {
+  let lines = filteredCommits.flatMap((d) => d.lines);
+  let files = d3
+    .groups(lines, (d) => d.file)
+    .map(([name, lines]) => {
+      return { name, lines };
+    })
+    .sort((a, b) => b.lines.length - a.lines.length);
+
+  let filesContainer = d3
+    .select('#files')
+    .selectAll('div')
+    .data(files, (d) => d.name)
+    .join(
+      // This code only runs when the div is initially rendered
+      (enter) =>
+        enter.append('div').call((div) => {
+          div.append('dt').call(dt => {
+            dt.append('code');
+            dt.append('small');
+          });
+          div.append('dd');
+        }),
+    );
+
+  // This code updates the div info
+  filesContainer.select('dt > code').text((d) => d.name);
+  filesContainer.select('dt > small').text((d) => `${d.lines.length} lines`);
+  
+  // Add visualization divs
+  filesContainer
+    .select('dd')
+    .selectAll('div')
+    .data((d) => d.lines)
+    .join('div')
+    .attr('class', 'loc')
+    .attr('style', (line) => `--color: ${colors(line.type)}`);
+}
+
+
+function onTimeSliderChange() {
+  commitProgress = document.getElementById('commit-progress').value;
+  commitMaxTime = timeScale.invert(commitProgress);
+  
+  const sliderTimeElement = document.getElementById('slider-time');
+  if (sliderTimeElement) {
+    sliderTimeElement.textContent = commitMaxTime.toLocaleString('en', {
+      dateStyle: "long",
+      timeStyle: "short"
+    });
+  }
+
+  filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
+  
+  // Filter data to match filtered commits
+  let filteredCommitIds = new Set(filteredCommits.map(d => d.id));
+  let filteredData = data.filter(line => filteredCommitIds.has(line.commit));
+  
+  // Render stats (clearing happens inside renderCommitInfo)
+  renderCommitInfo(filteredData, filteredCommits);
+  updateScatterPlot(filteredData, filteredCommits);
+  updateFileDisplay(filteredCommits); 
+}
+
+if (document.getElementById('commit-progress')) {
+  document.getElementById('commit-progress').addEventListener('input', onTimeSliderChange);
+  
+  // Initialize on page load
+  onTimeSliderChange();
+} else {
+  console.error('Could not find #commit-progress element');
+}
+
+d3.select('#scatter-story')
+  .selectAll('.step')
+  .data(commits)
+  .join('div')
+  .attr('class', 'step')
+  .html(
+    (d, i) => `
+		On ${d.datetime.toLocaleString('en', {
+      dateStyle: 'full',
+      timeStyle: 'short',
+    })},
+		I made <a href="${d.url}" target="_blank">${
+      i > 0 ? 'another glorious commit' : 'my first commit, and it was glorious'
+    }</a>.
+		I edited ${d.totalLines} lines across ${
+      d3.rollups(
+        d.lines,
+        (D) => D.length,
+        (d) => d.file,
+      ).length
+    } files.
+		Then I looked over all I had made, and I saw that it was very good.
+	`,
+  );
+
+
+import scrollama from 'https://cdn.jsdelivr.net/npm/scrollama@3.2.0/+esm';
+
+function onStepEnter(response) {
+  const commitDate = response.element.__data__.datetime;
+  console.log(commitDate);
+  
+  // Filter commits up to this date (same logic as slider)
+  filteredCommits = commits.filter((d) => d.datetime <= commitDate);
+  
+  // Filter data to match filtered commits
+  let filteredCommitIds = new Set(filteredCommits.map(d => d.id));
+  let filteredData = data.filter(line => filteredCommitIds.has(line.commit));
+  
+  // Update all visualizations (same as slider)
+  renderCommitInfo(filteredData, filteredCommits);
+  updateScatterPlot(filteredData, filteredCommits);
+  updateFileDisplay(filteredCommits);
+  
+  // Also update the slider to match
+  commitProgress = timeScale(commitDate);
+  document.getElementById('commit-progress').value = commitProgress;
+  document.getElementById('slider-time').textContent = commitDate.toLocaleString('en', {
+    dateStyle: "long",
+    timeStyle: "short"
+  });
+}
+
+const scroller = scrollama();
+scroller
+  .setup({
+    container: '#scrolly-1',
+    step: '#scrolly-1 .step',
+  })
+  .onStepEnter(onStepEnter);
