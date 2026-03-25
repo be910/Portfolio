@@ -18,7 +18,7 @@
         "image": "../images/Amazon_Reviews.jpg",
         "year": 2025,
         "description": "Using Amazon reviews data to analyze consumer sentiment and its correlation with economic indicators such as GDP.",
-        "url": "#"
+        "url": "https://github.com/mam084/dsc232amazon"
     },
     {
         "title": "Pedal Patrol",
