@@ -11,12 +11,14 @@ async function init() {
   if (profileStats) {
     profileStats.innerHTML = `
       <dl class="stats-grid">
-        <dt>Public Repos:</dt><dd>${githubData.public_repos}</dd>
-        <dt>Public Gists:</dt><dd>${githubData.public_gists}</dd>
-        <dt>Followers:</dt><dd>${githubData.followers.toLocaleString()}</dd>
-        <dt>Following:</dt><dd>${githubData.following}</dd>
+        <dt>PUBLIC REPOS</dt>
+        <dt>PUBLIC GISTS</dt>
+        <dt>FOLLOWING</dt>
+        <dd>${githubData.public_repos}</dd>
+        <dd>${githubData.public_gists}</dd>
+        <dd>${githubData.following}</dd>
       </dl>
-    `;
+  `;
   }
 }
 

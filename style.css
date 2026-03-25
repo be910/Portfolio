@@ -122,7 +122,7 @@ img[alt="profile picture"] {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin: 0;
   padding: 0;
@@ -140,9 +140,11 @@ img[alt="profile picture"] {
 
 .stats-grid dd {
   grid-row: 2;
+  grid-column: auto; /* ← add this to cancel the global rule */
   font-size: 3rem;
   font-weight: bold;
   margin: 0;
+  display: block; /* override the global flex */
 }
 
 /* Lab 5 - D3 Visualization */

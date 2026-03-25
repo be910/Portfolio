@@ -15,7 +15,7 @@
     },
     {
         "title": "Amazon Reviews as Economic Indicators",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "image": "../images/Amazon_Reviews.jpg",
         "year": 2025,
         "description": "Using Amazon reviews data to analyze consumer sentiment and its correlation with economic indicators such as GDP.",
         "url": "#"
@@ -40,47 +40,6 @@
         "year": 2023,
         "description": "Architecto ducimus voluptatem minima distinctio! Quod eos odit, blanditiis similique rem temporibus quae delectus consequuntur debitis repudiandae expedita magnam quisquam ad. Facilis quasi voluptates cum fugiat ipsum eligendi quae repudiandae?",
         "url": "#"
-    },
-    {
-        "title": "Quis quae quasi optio.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "year": 2024,
-        "description": "Iure explicabo ullam quam magnam accusantium. Atque saepe praesentium optio officiis suscipit ab quibusdam libero dolorum id, nesciunt deleniti, odio hic tenetur esse mollitia, aut cumque nobis porro numquam aliquid.",
-        "url": "#"
-    },
-    {
-        "title": "Non alias quod nostrum.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "year": 2023,
-        "description": "Totam necessitatibus nostrum et eum eaque qui nam illo? Ea soluta qui deserunt velit. A eos dolore accusantium distinctio tenetur, non perspiciatis recusandae expedita ab voluptas officiis laboriosam perferendis quod!",
-        "url": "#"
-    },
-    {
-        "title": "Autem non quidem tempora?",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "year": 2023,
-        "description": "Doloribus facilis hic recusandae cupiditate voluptate. Ea, ratione impedit eaque quis similique, maxime tempora quibusdam distinctio maiores illo officia recusandae corporis esse sit accusantium necessitatibus fuga id dolores perferendis velit.",
-        "url": "#"
-    },
-    {
-        "title": "Quae doloremque delectus ex!",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "year": 2024,
-        "description": "Dolore, velit nemo dolorum voluptatum ipsa autem laborum! Veritatis officiis culpa consectetur quibusdam maxime nam, provident dolores facere beatae nostrum sit neque dolor unde amet. Dicta facere perferendis quidem iusto.",
-        "url": "#"
-    },
-    {
-        "title": "Tempore, molestiae temporibus. Autem.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "year": 2025,
-        "description": "Ipsam vero perferendis repudiandae, dignissimos provident nobis adipisci? Odio perferendis nulla quisquam facere quis voluptate enim? Dicta, quo omnis eveniet aperiam quae vel, est quos consectetur deserunt dolore sed exercitationem?",
-        "url": "#"
-    },
-    {
-        "title": "Quia eius deleniti minus!",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",   
-        "year": 2024,
-        "description": "Omnis sit ducimus ullam eaque explicabo in, reprehenderit commodi aut voluptates dolorum ratione accusamus dolorem, distinctio nam. Eveniet, impedit nobis libero dicta autem iste deserunt culpa. Excepturi illum iste nobis.",
-        "url": "#"
     }
+    
 ]
