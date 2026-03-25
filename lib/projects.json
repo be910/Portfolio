@@ -31,21 +31,30 @@
         "title": "Lunar Crater",
         "image": "../images/lunar_crater.png",
         "year": 2025,
-        "description": "An interactive, scroll-driven data story visualizing the formation and long-term evolution of impact craters across the Moon's mare regions — from the earliest bombardment to the present day",
+        "description": "An interactive, scroll-driven data story visualizing the formation and long-term evolution of impact craters across the Moon's mare regions — from the earliest bombardment to the present day.",
         "url": "https://github.com/be910/LunarCrater/tree/main?tab=readme-ov-file"
     },
     {
         "title": "Melanoma-Classification-via-CNN-Soft-Ensemble",
         "image": "../images/Melanoma_Classification.png",
         "year": 2026,
-        "description": "A deep learning pipeline for melanoma classification using transfer learning models (ResNet50 and EfficientNet), with cross-dataset validation to evaluate generalization and robustness under domain shift",
+        "description": "A deep learning pipeline for melanoma classification using transfer learning models (ResNet50 and EfficientNet), with cross-dataset validation to evaluate generalization and robustness under domain shift.",
         "url": "https://github.com/ArtienVoskanian/Melanoma-Classification-via-CNN-Soft-Ensemble"
     },
     {
         "title": "Flavors, Features, and Feedback: A Data Science Approach to Recipe Ratings",
         "image": "../images/recipes.jpg",
         "year": 2026,
-        "description": "This project uses Food.com recipe data—including nutritional information, user reviews, and ratings—to build a model that predicts recipe ratings from review text while analyzing how factors like calorie content influence perceived enjoyment and the trade-off between health and taste",
+        "description": "This project uses Food.com recipe data—including nutritional information, user reviews, and ratings—to build a model that predicts recipe ratings from review text while analyzing how factors like calorie content influence perceived enjoyment and the trade-off between health and taste.",
         "url": "https://artienvoskanian.github.io/Modeling-Recipe-Ratings-Through-Structured-and-Text-Based-Feature-Engineering/"
+    },
+    {
+        "title": "Data Science Salary Analysis Dashboard",
+        "image": "../images/salary.jpg",
+        "year": 2026,
+        "description": "This project showcases an interactive analysis dashboard I developed using Excel, featuring insights drawn from salary datasets across Data Science job postings.",
+        "url": "https://github.com/be910/Analysis-Dashboards?tab=readme-ov-file"
     }
 ]
+
+
