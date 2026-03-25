@@ -2,7 +2,7 @@ import { fetchJSON, renderProjects, fetchGitHubData } from './global.js';
 
 async function init() {
   const projects = await fetchJSON('./lib/projects.json');
-  const latestProjects = projects.slice(0, 3);
+  const latestProjects = projects.slice().sort((a, b) => b.year - a.year).slice(0, 3);
   const projectsContainer = document.querySelector('.projects');
   renderProjects(latestProjects, projectsContainer, 'h2');
 

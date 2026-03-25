@@ -6,85 +6,131 @@
     <title>CV - Nguyen, Ann</title>
     <link rel="stylesheet" href="../style.css">
     <script src="../global.js" type="module"></script>
-    
 </head>
 <body>
-     <!-- <nav>
+    <!-- <nav>
         <a href="../index.html">Home</a> 
         <a href="../CV/index.html" class="current">CV</a> 
         <a href="../projects/index.html">Projects</a> 
         <a href="../contact/index.html">Contact</a> 
         <a href="https://github.com/be910" target="_blank">GitHub</a>
     </nav> -->
-
+ 
     <h1>Curriculum Vitae</h1>
-
-    <img src="../contact/photo.jpg" alt="profile picture" loading="lazy" width="225"
-    height="250"/> 
-   
-
+ 
+    <img src="../contact/photo.jpg" alt="profile picture" loading="lazy" width="200" height="250"/>
+ 
     <section>
         <h2>Education</h2>
-
+ 
         <article>
             <h3>Master of Science in Data Science</h3>
             <p>University of California, San Diego</p>
-            <p><time datetime="2024-09">September 2024</time> - Present</p>
+            <p><time datetime="2024-09">September 2024</time> – <time datetime="2026-03">March 2026</time></p>
         </article>
-
+ 
         <article>
             <h3>Bachelor of Science in Biomedical Engineering</h3>
             <p>University of California, Irvine</p>
-            <p><time datetime="2019-09">September 2019</time> - <time datetime="2023-06">June 2023</time></p>
+            <p><time datetime="2019-09">September 2019</time> – <time datetime="2023-06">June 2023</time></p>
         </article>
     </section>
-
+ 
     <section>
         <h2>Experience</h2>
-        
+ 
         <article>
             <header>
-                <h3>Research Assistant</h3>
-                <p>Neuroscience Lab - Xu Lab, UCI</p>
-                <p><time datetime="2023-07">July 2023</time> - Present</p>
+                <h3>Research Specialist</h3>
+                <p>Xu Laboratory, UCI</p>
+                <p><time datetime="2023-07">July 2023</time> – Present</p>
             </header>
             <ul>
-                <li>Developed random forest models to classifying rodent's behaviors in open arenas</li>
-                <li>Analyzed large-scale datasets using Python and R for statistical analysis</li>
-                <li>Analyzed neuronal calcium imaging from 2-photon microscopy</li>
-                <li>Presented posters at Society for Neuroscience & Center for Neurocircuit Mapping conferences</li>
+                <li>Automated behavioral phenotyping pipelines using DeepLabCut, Live Mouse Tracker, and MoSeq across 50+ animals, enabling pose estimation and quantitative analysis of locomotor motifs while eliminating manual scoring bias in behavioral quantification.</li>
+                <li>Built scalable MATLAB and Python preprocessing pipelines to convert raw .dat files to video and process 100+ GB of behavioral video data into structured formats for downstream statistical and machine learning analysis.</li>
+                <li>Designed and conducted Auditory Brainstem Response (ABR) experiments across 80+ mice; implemented a custom Python/MATLAB waveform analysis framework for automated threshold detection and peak identification — contributing to a first-author manuscript submitted to <em>The Journal of Neuroscience</em>.</li>
+                <li>Performed immunofluorescent staining and quantitative microscopy analysis on 80+ brain samples to assess neural structure and pathology.</li>
+                <li>Designed, built, and validated two live tracking behavioral systems for cognitive and sensory testing across multiple species (mice and degus).</li>
+                <li>Presented posters at Society for Neuroscience &amp; Center for Neurocircuit Mapping conferences.</li>
             </ul>
         </article>
-
+ 
         <article>
             <header>
                 <h3>Undergraduate Researcher</h3>
-                <p>Neuroscience Lab - Xu Lab, UCI</p>
-                <p><time datetime="2022-05">May 2022</time> - <time datetime="2023-06"></time>June 2023</p>
+                <p>Xu Laboratory, UCI</p>
+                <p><time datetime="2022-05">May 2022</time> – <time datetime="2023-06">June 2023</time></p>
             </header>
             <ul>
-                <li>Conducted rodent behavior experiments</li>
-                <li>Analyzed large-scale datasets using MatLAB</li>
-                <li>Performed histological processing of brain samples</li>
+                <li>Conducted rodent behavior experiments across cognitive and sensory paradigms.</li>
+                <li>Analyzed large-scale datasets using MATLAB for statistical analysis and visualization.</li>
+                <li>Performed histological processing of brain samples.</li>
             </ul>
         </article>
     </section>
-
-     <section>
-        <h2>Skills</h2>
-        
+ 
+    <section>
+        <h2>Projects</h2>
+ 
         <article>
-            <h3>Programming Languages</h3>
-            <p>Python, MATLAB, SQL</p>
+            <h3>Melanoma Classification</h3>
+            <p><em>PyTorch, ResNet50, EfficientNet, ISIC Dataset</em> — 2026</p>
+            <ul>
+                <li>Built a deep learning ensemble (ResNet50 + EfficientNet) for binary melanoma classification; achieved cross-domain AUC of 0.71 on a held-out ISIC dataset, demonstrating real-world generalization across distribution shift.</li>
+            </ul>
+        </article>
+ 
+        <article>
+            <h3>Flavors, Features, and Feedback: A Data Science Approach to Recipe Ratings</h3>
+            <p><em>Python, CatBoost, scikit-learn</em> — 2026</p>
+            <ul>
+                <li>Assessed data missingness mechanisms and conducted permutation-based hypothesis testing to evaluate feature significance.</li>
+                <li>Built regression and CatBoost models incorporating TF-IDF and sentiment analysis of user reviews to predict recipe ratings (R² = 0.55, RMSE = 0.038); evaluated model fairness using parity analysis.</li>
+            </ul>
+        </article>
+ 
+        <article>
+            <h3>Amazon Reviews as Economic Indicators</h3>
+            <p><em>PySpark</em> — 2025</p>
+            <ul>
+                <li>Analyzed 10+ GB of Amazon review data using PySpark to extract consumer sentiment trends and examined correlations with macroeconomic indicators including GDP.</li>
+            </ul>
+        </article>
+ 
+        <article>
+            <h3>Tracking Crater Evolution Across Lunar Seas</h3>
+            <p><em>D3.js, JavaScript, HTML/CSS</em> — 2025</p>
+            <ul>
+                <li>Built a scroll-driven interactive data story visualizing impact crater formation and evolution across the Moon's mare regions, featuring an animated D3-rendered lunar globe and clickable mare explorer with age estimates and morphological classifications.</li>
+            </ul>
         </article>
     </section>
-
+ 
+    <section>
+        <h2>Skills</h2>
+ 
+        <article>
+            <h3>Languages &amp; Tools</h3>
+            <p>Excel,MATLAB, Python, SQL, HTML/CSS</p>
+        </article>
+ 
+        <article>
+            <h3>Libraries &amp; Frameworks</h3>
+            <p>PyTorch, scikit-learn, pandas, NumPy, Plotly, D3.js, PySpark, CatBoost</p>
+        </article>
+ 
+        <article>
+            <h3>Neuroscience &amp; Research</h3>
+            <p>DeepLabCut, MoSeq, Live Mouse Tracker, 2-photon calcium imaging, ABR electrophysiology, histology, LabVIEW, SolidWorks, Adobe Illustrator/Photoshop</p>
+        </article>
+    </section>
+ 
     <section>
         <h2>Languages</h2>
-
+ 
         <article>
             <p><strong>English:</strong> Native proficiency</p>
-            <p><strong>Vietnamese:</strong> Native proficiency</p>  
+            <p><strong>Vietnamese:</strong> Native proficiency</p>
         </article>
     </section>
 </body>

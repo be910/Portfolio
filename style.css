@@ -30,6 +30,7 @@ nav {
 }
 
 nav a {
+  font-size: 1.50rem;
   flex: 1;
   text-decoration: none;
   color: inherit;
@@ -61,7 +62,7 @@ button {
 }
 
 h1 {
-  font-size: 400%;
+  font-size: 300%;
 }
 
 h1, h2, h3, h4, h5, h6 {
