@@ -15,7 +15,7 @@
     },
     {
         "title": "Amazon Reviews as Economic Indicators",
-        "image": "images/Amazon_Reviews.jpg",
+        "image": "images/Amazon_reviews.jpg",
         "year": 2025,
         "description": "Using Amazon reviews data to analyze consumer sentiment and its correlation with economic indicators such as GDP.",
         "url": "https://github.com/mam084/dsc232amazon"
@@ -36,7 +36,7 @@
     },
     {
         "title": "Melanoma-Classification-via-CNN-Soft-Ensemble",
-        "image": "images/Melanoma_Classification.png",
+        "image": "images/melanoma_classification.png",
         "year": 2026,
         "description": "A deep learning pipeline for melanoma classification using transfer learning models (ResNet50 and EfficientNet), with cross-dataset validation to evaluate generalization and robustness under domain shift.",
         "url": "https://github.com/ArtienVoskanian/Melanoma-Classification-via-CNN-Soft-Ensemble"
