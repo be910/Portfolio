@@ -1,7 +1,7 @@
-import { fetchJSON, renderProjects, fetchGitHubData } from './global.js';
+import { fetchJSON, renderProjects, fetchGitHubData, BASE_PATH } from './global.js';
 
 async function init() {
-  const projects = await fetchJSON('./lib/projects.json');
+  const projects = await fetchJSON(`${BASE_PATH}lib/projects.json`);
   const latestProjects = projects.slice().sort((a, b) => b.year - a.year).slice(0, 3);
   const projectsContainer = document.querySelector('.projects');
   renderProjects(latestProjects, projectsContainer, 'h2');
@@ -18,7 +18,7 @@ async function init() {
         <dd>${githubData.public_gists}</dd>
         <dd>${githubData.following}</dd>
       </dl>
-  `;
+    `;
   }
 }
 

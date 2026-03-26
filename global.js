@@ -30,7 +30,7 @@ select.addEventListener('input', function (event) {
   document.documentElement.style.colorScheme = event.target.value;
 });
 
-const BASE_PATH = 
+export const BASE_PATH = 
   location.hostname === 'localhost' || location.hostname === '127.0.0.1'
   ? '/' 
   : '/Portfolio/';
@@ -77,7 +77,7 @@ export async function fetchJSON(url) {
   }
 }
 
-// --- UPDATED renderProjects ---
+// Render Projects
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   containerElement.innerHTML = '';
   
@@ -88,16 +88,16 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
   
   for (let project of projects) {
     const article = document.createElement('article');
-    article.className = 'project-card';  // add class for styling
+    article.className = 'project-card';
     
     article.innerHTML = `
       <div class="img-container">
-        <img src="${project.image}" alt="${project.title}">
+        <img src="${BASE_PATH}${project.image}" alt="${project.title}">
       </div>
       <${headingLevel}><a href="${project.url}" target="_blank">${project.title}</a></${headingLevel}>
       <p class="year">c. ${project.year}</p>
       <p>${project.description}</p>
-`   ;
+    `;
     
     containerElement.appendChild(article);
   }
