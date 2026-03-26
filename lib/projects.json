@@ -1,56 +1,56 @@
 [
     {
         "title": "Types of Visualizations",
-        "image": "../images/visualizations.jpg",
+        "image": "images/visualizations.jpg",
         "year": 2025,
         "description": "A collection of data visualization projects exploring nutrition economics and critical analysis of misleading data presentation in journalism.",
         "url": "https://github.com/be910/Types-of-Visualizations"
 },
     {
         "title": "South America Climate Change",
-        "image": "../images/SAmerica_climate.png",
+        "image": "images/SAmerica_climate.png",
         "year": 2025,
         "description": "An interactive data visualization tracking surface temperature changes across South American countries from 1961 to 2024.",
         "url": "https://be910.github.io/S.America_Climate_IntPlot/"
     },
     {
         "title": "Amazon Reviews as Economic Indicators",
-        "image": "../images/Amazon_Reviews.jpg",
+        "image": "images/Amazon_Reviews.jpg",
         "year": 2025,
         "description": "Using Amazon reviews data to analyze consumer sentiment and its correlation with economic indicators such as GDP.",
         "url": "https://github.com/mam084/dsc232amazon"
     },
     {
         "title": "Pedal Patrol",
-        "image": "../images/PedalPatrol.jpg",
+        "image": "images/PedalPatrol.jpg",
         "year": 2025,
         "description": "Using D3 and MapBox to create an interactive map that visualizes bike traffic patterns in Boston, MA.",
         "url": "https://be910.github.io/PedalPatrol/"   
     },
     {
         "title": "Lunar Crater",
-        "image": "../images/lunar_crater.png",
+        "image": "images/lunar_crater.png",
         "year": 2025,
         "description": "An interactive, scroll-driven data story visualizing the formation and long-term evolution of impact craters across the Moon's mare regions — from the earliest bombardment to the present day.",
         "url": "https://github.com/be910/LunarCrater/tree/main?tab=readme-ov-file"
     },
     {
         "title": "Melanoma-Classification-via-CNN-Soft-Ensemble",
-        "image": "../images/Melanoma_Classification.png",
+        "image": "images/Melanoma_Classification.png",
         "year": 2026,
         "description": "A deep learning pipeline for melanoma classification using transfer learning models (ResNet50 and EfficientNet), with cross-dataset validation to evaluate generalization and robustness under domain shift.",
         "url": "https://github.com/ArtienVoskanian/Melanoma-Classification-via-CNN-Soft-Ensemble"
     },
     {
         "title": "Flavors, Features, and Feedback: A Data Science Approach to Recipe Ratings",
-        "image": "../images/recipes.jpg",
+        "image": "images/recipes.jpg",
         "year": 2026,
         "description": "This project uses Food.com recipe data—including nutritional information, user reviews, and ratings—to build a model that predicts recipe ratings from review text while analyzing how factors like calorie content influence perceived enjoyment and the trade-off between health and taste.",
         "url": "https://artienvoskanian.github.io/Modeling-Recipe-Ratings-Through-Structured-and-Text-Based-Feature-Engineering/"
     },
     {
         "title": "Data Science Salary Analysis Dashboard",
-        "image": "../images/salary.jpg",
+        "image": "images/salary.jpg",
         "year": 2026,
         "description": "This project showcases an interactive analysis dashboard I developed using Excel, featuring insights drawn from salary datasets across Data Science job postings.",
         "url": "https://github.com/be910/Analysis-Dashboards?tab=readme-ov-file"
